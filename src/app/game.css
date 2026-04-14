@@ -1,0 +1,38 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../assets/bg.png');
+    background-size: cover;
+}
+
+.game-window {
+    width: 80vh;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    column-gap: 5px;
+    row-gap: 5px;
+} 
+
+.position {
+    box-sizing: content-box;
+    width: 100%;
+    height: 100%;
+    border: solid 5px whitesmoke;
+}
+
+[player1] {
+    background-color: rebeccapurple;
+}
+
+[player2] {
+    background-color: seagreen;
+}
+
+button {
+    padding: 0.8vh;
+    margin-top: 6vh;
+}
