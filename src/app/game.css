@@ -24,11 +24,20 @@ body {
 }
 
 [player1] {
-    background-color: rebeccapurple;
+    background-image: url(../assets/honda.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 110%;
+    background-position: 50%;
+
 }
 
 [player2] {
-    background-color: seagreen;
+    background-image: url(../assets/yamaha.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: 50%;
 }
 
 button {
