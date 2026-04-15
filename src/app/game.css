@@ -13,15 +13,14 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    column-gap: 5px;
-    row-gap: 5px;
+    margin-top: 5vh;
 } 
 
 .position {
-    box-sizing: content-box;
+    box-sizing: border-box;
     width: 100%;
     height: 100%;
-    border: solid 5px whitesmoke;
+    border: solid 3px #ffffff;
 }
 
 [player1] {
@@ -34,5 +33,21 @@ body {
 
 button {
     padding: 0.8vh;
-    margin-top: 6vh;
+    margin-top: 4vh;
+}
+
+#id1, #id2, #id3{
+    border-top: none;  
+}
+
+#id1, #id4, #id7 {
+    border-left: none;
+}
+
+#id3, #id6, #id9 {
+    border-right: none;
+}
+
+#id7, #id8, #id9 {
+    border-bottom: none;
 }
