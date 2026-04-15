@@ -60,3 +60,11 @@ button {
 #id7, #id8, #id9 {
     border-bottom: none;
 }
+
+.winner[player1]{
+    border: solid 10px #ff1f1f !important;
+}
+
+.winner[player2]{
+    border: solid 10px #003cff !important;
+}
