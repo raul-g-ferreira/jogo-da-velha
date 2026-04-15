@@ -7,24 +7,23 @@ function select(e) {
     const field = e.target
     if (isAvailable(field)) {
 
-        const player = player1 ? 'player1' : 'player2'
+        const player = player1Turn ? 'player1' : 'player2'
 
         console.log('seleciona')
 
         field.setAttribute(player, '')
     }
 
-    player1 = !player1
+    player1Turn = !player1Turn
 }
 
 function initialize() {
     for (let i = 1; i <= 9; i++) {
         const div = document.createElement('div')
         div.classList.add('position')
-        div.id = i
+        div.id = `id${i}`
         document.querySelector('.game-window').appendChild(div)
     }
-    console.log(player1)
     const divs = document.querySelectorAll('div .position')
     .forEach(div => {
         div.onclick = select
@@ -35,7 +34,5 @@ function reset() {
     window.location.reload()
 }
 
-
-
-var player1 = true
+var player1Turn = true
 initialize()
