@@ -9,27 +9,27 @@ function select(e) {
 
         const player = player1Turn ? 'player1' : 'player2'
 
-        console.log('seleciona')
-
         field.setAttribute(player, '')
 
         player1Turn = !player1Turn
 
         checkVictory(player)
-        checkDraw()
     }
 }
 
 function showVictory(player) {
-    alert(`Vitória da ${playerNames[player == 'player1'? 0 : 1]}`)
-    reset() // reload
+    document.querySelectorAll('.position').forEach(pos => {
+        pos.onclick = null
+    })
 }
 
 function checkDraw() {
     const occupiedPositions = Array.from(document.querySelectorAll('[player1], [player2]'))
     if (occupiedPositions.length >= 9) {
-        alert('Deu velha!')
-        reset()
+        alert('Deu velha 8(')
+        document.querySelectorAll('.position').forEach(pos => {
+            pos.onclick = null
+        })
     }
 }
 
@@ -48,10 +48,20 @@ function checkVictory(player) {
         return isSubset(wLineup)
     })
 
-    if (winnerLineup.length > 0) { // debug
-        console.log(`${player} wins`)
+    if (winnerLineup.length > 0) {
+        victoryStyles(winnerLineup)
         showVictory(player)
+    }else {
+        checkDraw()
     }
+}
+
+function victoryStyles(lineup) {
+    const query = `#${lineup[0][0]}, #${lineup[0][1]}, #${lineup[0][2]}`
+    const positions = document.querySelectorAll(query)
+    positions.forEach(pos => {
+        pos.classList.add('winner')
+    })
 }
 
 function initialize() {
@@ -61,6 +71,10 @@ function initialize() {
         div.id = `id${i}`
         document.querySelector('.game-window').appendChild(div)
     }
+    setSelect()
+}
+
+function setSelect() {
     const divs = document.querySelectorAll('div .position')
         .forEach(div => {
             div.onclick = select
@@ -68,7 +82,12 @@ function initialize() {
 }
 
 function reset() {
-    window.location.reload()
+    document.querySelectorAll('.position').forEach(pos => {
+        pos.removeAttribute('player1')
+        pos.removeAttribute('player2')
+        pos.classList.remove('winner')
+    })
+    setSelect()
 }
 
 var player1Turn = true
